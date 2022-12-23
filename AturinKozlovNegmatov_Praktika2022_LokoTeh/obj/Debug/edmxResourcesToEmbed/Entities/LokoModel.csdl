@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PraktikaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PraktikaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Авторизация" EntityType="PraktikaModel.Авторизация" />
+    <EntitySet Name="Должности" EntityType="PraktikaModel.Должности" />
+    <EntitySet Name="Запчасти" EntityType="PraktikaModel.Запчасти" />
+    <EntitySet Name="Поезда" EntityType="PraktikaModel.Поезда" />
+    <EntitySet Name="Склады" EntityType="PraktikaModel.Склады" />
+    <EntitySet Name="Сотрудники" EntityType="PraktikaModel.Сотрудники" />
+    <EntitySet Name="Типы" EntityType="PraktikaModel.Типы" />
+    <EntitySet Name="Учет_Запчастей" EntityType="PraktikaModel.Учет_Запчастей" />
+    <AssociationSet Name="FK_Сотрудники_Должности" Association="PraktikaModel.FK_Сотрудники_Должности">
+      <End Role="Должности" EntitySet="Должности" />
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запчасти_Склады" Association="PraktikaModel.FK_Запчасти_Склады">
+      <End Role="Склады" EntitySet="Склады" />
+      <End Role="Запчасти" EntitySet="Запчасти" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Учет_Запчастей_Запчасти1" Association="PraktikaModel.FK_Учет_Запчастей_Запчасти1">
+      <End Role="Запчасти" EntitySet="Запчасти" />
+      <End Role="Учет_Запчастей" EntitySet="Учет_Запчастей" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Поезда_Сотрудники" Association="PraktikaModel.FK_Поезда_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Поезда" EntitySet="Поезда" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Поезда_Типы" Association="PraktikaModel.FK_Поезда_Типы">
+      <End Role="Типы" EntitySet="Типы" />
+      <End Role="Поезда" EntitySet="Поезда" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Склады_Сотрудники" Association="PraktikaModel.FK_Склады_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Склады" EntitySet="Склады" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Учет_Запчастей_Сотрудники" Association="PraktikaModel.FK_Учет_Запчастей_Сотрудники">
+      <End Role="Сотрудники" EntitySet="Сотрудники" />
+      <End Role="Учет_Запчастей" EntitySet="Учет_Запчастей" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Авторизация">
+    <Key>
+      <PropertyRef Name="Id_auto" />
+    </Key>
+    <Property Name="Id_auto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Должности">
+    <Key>
+      <PropertyRef Name="Id_Dolj" />
+    </Key>
+    <Property Name="Id_Dolj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Dolj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Сотрудники" Relationship="PraktikaModel.FK_Сотрудники_Должности" FromRole="Должности" ToRole="Сотрудники" />
+  </EntityType>
+  <EntityType Name="Запчасти">
+    <Key>
+      <PropertyRef Name="Id_Zapchasti" />
+    </Key>
+    <Property Name="Id_Zapchasti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Zapchast" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Sklad" Type="Int32" />
+    <NavigationProperty Name="Склады" Relationship="PraktikaModel.FK_Запчасти_Склады" FromRole="Запчасти" ToRole="Склады" />
+    <NavigationProperty Name="Учет_Запчастей" Relationship="PraktikaModel.FK_Учет_Запчастей_Запчасти1" FromRole="Запчасти" ToRole="Учет_Запчастей" />
+  </EntityType>
+  <EntityType Name="Поезда">
+    <Key>
+      <PropertyRef Name="Id_poezda" />
+    </Key>
+    <Property Name="Id_poezda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_poezda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Massa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Speed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nachalnik" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
+    <NavigationProperty Name="Сотрудники" Relationship="PraktikaModel.FK_Поезда_Сотрудники" FromRole="Поезда" ToRole="Сотрудники" />
+    <NavigationProperty Name="Типы" Relationship="PraktikaModel.FK_Поезда_Типы" FromRole="Поезда" ToRole="Типы" />
+  </EntityType>
+  <EntityType Name="Склады">
+    <Key>
+      <PropertyRef Name="Id_Sklad" />
+    </Key>
+    <Property Name="Id_Sklad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nachalnik_Sklada" Type="Int32" />
+    <NavigationProperty Name="Запчасти" Relationship="PraktikaModel.FK_Запчасти_Склады" FromRole="Склады" ToRole="Запчасти" />
+    <NavigationProperty Name="Сотрудники" Relationship="PraktikaModel.FK_Склады_Сотрудники" FromRole="Склады" ToRole="Сотрудники" />
+  </EntityType>
+  <EntityType Name="Сотрудники">
+    <Key>
+      <PropertyRef Name="Id_Worker" />
+    </Key>
+    <Property Name="Id_Worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Doljnost" Type="Int32" />
+    <Property Name="Condition" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Должности" Relationship="PraktikaModel.FK_Сотрудники_Должности" FromRole="Сотрудники" ToRole="Должности" />
+    <NavigationProperty Name="Поезда" Relationship="PraktikaModel.FK_Поезда_Сотрудники" FromRole="Сотрудники" ToRole="Поезда" />
+    <NavigationProperty Name="Склады" Relationship="PraktikaModel.FK_Склады_Сотрудники" FromRole="Сотрудники" ToRole="Склады" />
+    <NavigationProperty Name="Учет_Запчастей" Relationship="PraktikaModel.FK_Учет_Запчастей_Сотрудники" FromRole="Сотрудники" ToRole="Учет_Запчастей" />
+  </EntityType>
+  <EntityType Name="Типы">
+    <Key>
+      <PropertyRef Name="Id_Type" />
+    </Key>
+    <Property Name="Id_Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Тип" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Поезда" Relationship="PraktikaModel.FK_Поезда_Типы" FromRole="Типы" ToRole="Поезда" />
+  </EntityType>
+  <EntityType Name="Учет_Запчастей">
+    <Key>
+      <PropertyRef Name="Id_Ucheta" />
+    </Key>
+    <Property Name="Id_Zapchasti" Type="Int32" Nullable="false" />
+    <Property Name="Id_Nachalnika" Type="Int32" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Ucheta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Запчасти" Relationship="PraktikaModel.FK_Учет_Запчастей_Запчасти1" FromRole="Учет_Запчастей" ToRole="Запчасти" />
+    <NavigationProperty Name="Сотрудники" Relationship="PraktikaModel.FK_Учет_Запчастей_Сотрудники" FromRole="Учет_Запчастей" ToRole="Сотрудники" />
+  </EntityType>
+  <Association Name="FK_Сотрудники_Должности">
+    <End Type="PraktikaModel.Должности" Role="Должности" Multiplicity="0..1" />
+    <End Type="PraktikaModel.Сотрудники" Role="Сотрудники" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Должности">
+        <PropertyRef Name="Id_Dolj" />
+      </Principal>
+      <Dependent Role="Сотрудники">
+        <PropertyRef Name="Doljnost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запчасти_Склады">
+    <End Type="PraktikaModel.Склады" Role="Склады" Multiplicity="0..1" />
+    <End Type="PraktikaModel.Запчасти" Role="Запчасти" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Склады">
+        <PropertyRef Name="Id_Sklad" />
+      </Principal>
+      <Dependent Role="Запчасти">
+        <PropertyRef Name="Sklad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Учет_Запчастей_Запчасти1">
+    <End Type="PraktikaModel.Запчасти" Role="Запчасти" Multiplicity="1" />
+    <End Type="PraktikaModel.Учет_Запчастей" Role="Учет_Запчастей" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Запчасти">
+        <PropertyRef Name="Id_Zapchasti" />
+      </Principal>
+      <Dependent Role="Учет_Запчастей">
+        <PropertyRef Name="Id_Zapchasti" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Поезда_Сотрудники">
+    <End Type="PraktikaModel.Сотрудники" Role="Сотрудники" Multiplicity="0..1" />
+    <End Type="PraktikaModel.Поезда" Role="Поезда" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="Id_Worker" />
+      </Principal>
+      <Dependent Role="Поезда">
+        <PropertyRef Name="Nachalnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Поезда_Типы">
+    <End Type="PraktikaModel.Типы" Role="Типы" Multiplicity="0..1" />
+    <End Type="PraktikaModel.Поезда" Role="Поезда" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Типы">
+        <PropertyRef Name="Id_Type" />
+      </Principal>
+      <Dependent Role="Поезда">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Склады_Сотрудники">
+    <End Type="PraktikaModel.Сотрудники" Role="Сотрудники" Multiplicity="0..1" />
+    <End Type="PraktikaModel.Склады" Role="Склады" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="Id_Worker" />
+      </Principal>
+      <Dependent Role="Склады">
+        <PropertyRef Name="Nachalnik_Sklada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Учет_Запчастей_Сотрудники">
+    <End Type="PraktikaModel.Сотрудники" Role="Сотрудники" Multiplicity="0..1" />
+    <End Type="PraktikaModel.Учет_Запчастей" Role="Учет_Запчастей" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудники">
+        <PropertyRef Name="Id_Worker" />
+      </Principal>
+      <Dependent Role="Учет_Запчастей">
+        <PropertyRef Name="Id_Nachalnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79f97eff461f487d89aef3e43ea78279" Name="Diagram1">
+        <EntityTypeShape EntityType="PraktikaModel.Авторизация" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="PraktikaModel.Должности" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PraktikaModel.Запчасти" Width="1.5" PointX="7.5" PointY="7.125" />
+        <EntityTypeShape EntityType="PraktikaModel.Поезда" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="PraktikaModel.Склады" Width="1.5" PointX="5.25" PointY="7.375" />
+        <EntityTypeShape EntityType="PraktikaModel.Сотрудники" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="PraktikaModel.Типы" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="PraktikaModel.Учет_Запчастей" Width="1.5" PointX="9.75" PointY="5.125" />
+        <AssociationConnector Association="PraktikaModel.FK_Сотрудники_Должности" />
+        <AssociationConnector Association="PraktikaModel.FK_Запчасти_Склады" />
+        <AssociationConnector Association="PraktikaModel.FK_Учет_Запчастей_Запчасти1" />
+        <AssociationConnector Association="PraktikaModel.FK_Поезда_Сотрудники" />
+        <AssociationConnector Association="PraktikaModel.FK_Поезда_Типы" />
+        <AssociationConnector Association="PraktikaModel.FK_Склады_Сотрудники" />
+        <AssociationConnector Association="PraktikaModel.FK_Учет_Запчастей_Сотрудники" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

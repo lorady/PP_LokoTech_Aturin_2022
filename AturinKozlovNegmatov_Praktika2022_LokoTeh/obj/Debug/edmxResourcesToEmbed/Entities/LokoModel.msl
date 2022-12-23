@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище PraktikaModelContainer" CdmEntityContainer="PraktikaEntities">
+    <EntitySetMapping Name="Авторизация">
+      <EntityTypeMapping TypeName="PraktikaModel.Авторизация">
+        <MappingFragment StoreEntitySet="Авторизация">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Id_auto" ColumnName="Id_auto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Должности">
+      <EntityTypeMapping TypeName="PraktikaModel.Должности">
+        <MappingFragment StoreEntitySet="Должности">
+          <ScalarProperty Name="Name_Dolj" ColumnName="Name_Dolj" />
+          <ScalarProperty Name="Id_Dolj" ColumnName="Id_Dolj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Запчасти">
+      <EntityTypeMapping TypeName="PraktikaModel.Запчасти">
+        <MappingFragment StoreEntitySet="Запчасти">
+          <ScalarProperty Name="Sklad" ColumnName="Sklad" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Name_Zapchast" ColumnName="Name_Zapchast" />
+          <ScalarProperty Name="Id_Zapchasti" ColumnName="Id_Zapchasti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Поезда">
+      <EntityTypeMapping TypeName="PraktikaModel.Поезда">
+        <MappingFragment StoreEntitySet="Поезда">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Nachalnik" ColumnName="Nachalnik" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Massa" ColumnName="Massa" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Name_poezda" ColumnName="Name_poezda" />
+          <ScalarProperty Name="Id_poezda" ColumnName="Id_poezda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Склады">
+      <EntityTypeMapping TypeName="PraktikaModel.Склады">
+        <MappingFragment StoreEntitySet="Склады">
+          <ScalarProperty Name="Nachalnik_Sklada" ColumnName="Nachalnik_Sklada" />
+          <ScalarProperty Name="Id_Sklad" ColumnName="Id_Sklad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сотрудники">
+      <EntityTypeMapping TypeName="PraktikaModel.Сотрудники">
+        <MappingFragment StoreEntitySet="Сотрудники">
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Doljnost" ColumnName="Doljnost" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="Id_Worker" ColumnName="Id_Worker" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Типы">
+      <EntityTypeMapping TypeName="PraktikaModel.Типы">
+        <MappingFragment StoreEntitySet="Типы">
+          <ScalarProperty Name="Тип" ColumnName="Тип" />
+          <ScalarProperty Name="Id_Type" ColumnName="Id_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Учет_Запчастей">
+      <EntityTypeMapping TypeName="PraktikaModel.Учет_Запчастей">
+        <MappingFragment StoreEntitySet="Учет_Запчастей">
+          <ScalarProperty Name="Id_Ucheta" ColumnName="Id_Ucheta" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Id_Nachalnika" ColumnName="Id_Nachalnika" />
+          <ScalarProperty Name="Id_Zapchasti" ColumnName="Id_Zapchasti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
